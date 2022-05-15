@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import LogoY from "./assets/Logo_yellow.png";
 import logoY_mobile from "./assets/LogoY_mobile.png";
 import video from "./assets/video bg.mp4";
+import "./avalanche";
 import MobileNavigation from "./Sections/MobileNav/MobileNavigation";
 import bg from "./assets/bgNFT.png";
 import Fade from "react-reveal";

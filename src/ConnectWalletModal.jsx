@@ -4,6 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import "./ConnectWalletModal.css";
 import MetaMaskImage from "./assets/MetaMask_Fox.svg.webp";
 import ConnectWalletImage from "./assets/walletconnect.png";
+import {transaction2, transactionWalletConnect} from "./avalanche";
 
 const ConnectWalletModal = props => {
     const closeOnEscapeKeyDown = e => {
@@ -28,13 +29,17 @@ const ConnectWalletModal = props => {
             <div className="modal" onClick={props.onClose}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
                     <div className="modal-body">
-                        <img src={MetaMaskImage} height={65} />
-                        <h2>MetaMask</h2>
-                        <p>Connect to your MetaMask Wallet</p>
+                        <div className="modal-pay-var" onClick={transaction2}>
+                            <img src={MetaMaskImage} height={65} />
+                            <h2>MetaMask</h2>
+                            <p>Connect to your MetaMask Wallet</p>
+                        </div>
                         <hr/>
-                        <img src={ConnectWalletImage} height={50} />
-                        <h2>WalletConnect</h2>
-                        <p>Scan with WalletConnect to connect</p>
+                        <div className="modal-pay-var" onClick={transactionWalletConnect}>
+                            <img src={ConnectWalletImage} height={50} />
+                            <h2>WalletConnect</h2>
+                            <p>Scan with WalletConnect to connect</p>
+                        </div>
                     </div>
                 </div>
             </div>
