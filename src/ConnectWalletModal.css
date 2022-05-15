@@ -67,7 +67,7 @@ p {
     color: #5E5A51;
 }
 hr {
-    width: 100%;
+    width: 90%;
     margin: 2rem;
 }
 
@@ -77,4 +77,12 @@ hr {
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
+}
+
+@media (max-width: 568px) {
+    .modal-content {
+        width: 100%;
+        margin: 1rem;
+    }
+
 }
