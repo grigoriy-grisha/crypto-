@@ -15,7 +15,7 @@ function ScrollBox({children, color}) {
     scrollableBox.run()
   }, [])
 
-  return <div ref={ref}   >
+  return <div ref={ref} >
       <div ref={contentRef} style={{display: "grid", gridTemplateRows: "1fr 1fr", width: "100%"}}>
         {children(<CubeOverlay ref={cubeRef} color={color}/>)}
       </div>
