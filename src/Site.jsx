@@ -94,7 +94,7 @@ const Site = () => {
                        id="BgVideo">
                     <source src={video}/>
                 </video>
-                <MobileNavigation/>
+                <MobileNavigation onOpenConnectWalletModal={openConnectWalletModal}/>
             </header>
             <section className={styles.MainFrame}>
                 <div className={styles.Navigation_Bottom}>

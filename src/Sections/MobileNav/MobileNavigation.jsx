@@ -5,7 +5,7 @@ import {AiOutlineClose} from 'react-icons/ai'
 import {useState} from 'react';
 import NavLinks from './NavLinks'
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ onOpenConnectWalletModal }) => {
 
     const [open, setOpen] = useState(false);
     const hamburgerIcon = <VscMenu className={styles.Hamburger}
@@ -23,7 +23,7 @@ const MobileNavigation = () => {
 
         <nav className={styles.MobileNav}>
             {open ? hamburgerCloseIcon : hamburgerIcon}
-            {open && <NavLinks isMobile={true} closeMobileNav={closeMobileNav}/>}
+            {open && <NavLinks onOpenConnectWalletModal={onOpenConnectWalletModal} isMobile={true} closeMobileNav={closeMobileNav}/>}
         </nav>
     );
 };
