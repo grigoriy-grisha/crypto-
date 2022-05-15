@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import LogoY from "./assets/Logo_yellow.png";
 import logoY_mobile from "./assets/LogoY_mobile.png";
 import video from "./assets/video bg.mp4";
+import "./avalanche";
 import MobileNavigation from "./Sections/MobileNav/MobileNavigation";
 import bg from "./assets/bgNFT.png";
 import Fade from "react-reveal";
@@ -19,60 +20,53 @@ import shoes3 from "./assets/shoes3.png";
 import shoes2 from "./assets/shoes2.png";
 import {AiFillTwitterCircle} from "react-icons/ai";
 import {FaTelegram} from "react-icons/fa";
-import ScrollBox from "./ScrollBox";
-import CubeOverlay from "./CubeOverlay";
+import ConnectWalletModal from "./ConnectWalletModal";
 
 function ScrollLine() {
-  setInterval(function (ex, nfs, uniq, chance, genesis) {
-    let Item = document.getElementById('Item');
-    setTimeout(function ex() {
-      Item.textContent = 'EXCLUSIVE COLLECTION'
-    }, 2000);
-    setTimeout(function nfs(ex) {
-      Item.textContent = '10000 NFS BOXES'
-      setTimeout(ex, 12000)
-    }, 4000);
-    setTimeout(function uniq(ex, nfs) {
-      Item.textContent = '5000 UNIQUE COLORS'
-      setTimeout(nfs, 12000);
-      setTimeout(ex, 12000)
-    }, 6000);
-    setTimeout(function chance(ex, nfs, uniq) {
-      Item.textContent = '5 % CHANCE OF UNCOMMON SNEAKERS'
-      setTimeout(nfs, 12000);
-      setTimeout(ex, 12000);
-      setTimeout(uniq, 12000)
-    }, 8000);
-    setTimeout(function genesis(ex, nfs, uniq, change) {
-      Item.textContent = 'GENESIS NFT DROP BOX'
-      setTimeout(ex, 12000);
-      setTimeout(nfs, 12000);
-      setTimeout(uniq, 12000);
-      setTimeout(change, 12000)
-    }, 10000);
-    clearTimeout(ex);
-    clearTimeout(nfs);
-    clearTimeout(uniq);
-    clearTimeout(chance);
-    clearTimeout(genesis)
-  }, 12000);
+    setInterval(function (ex, nfs, uniq, chance, genesis) {
+        let Item = document.getElementById('Item');
+        setTimeout(function ex() {
+            Item.textContent = 'EXCLUSIVE COLLECTION'
+        }, 2000);
+        setTimeout(function nfs(ex) {
+            Item.textContent = '10000 NFS BOXES'
+            setTimeout(ex, 12000)
+        }, 4000);
+        setTimeout(function uniq(ex, nfs) {
+            Item.textContent = '5000 UNIQUE COLORS'
+            setTimeout(nfs, 12000);setTimeout(ex, 12000)
+        }, 6000);
+        setTimeout(function chance(ex, nfs, uniq) {
+            Item.textContent = '5 % CHANCE OF UNCOMMON SNEAKERS'
+            setTimeout(nfs, 12000);setTimeout(ex, 12000);setTimeout(uniq, 12000)
+        }, 8000);
+        setTimeout(function genesis(ex, nfs, uniq, change) {
+            Item.textContent = 'GENESIS NFT DROP BOX'
+            setTimeout(ex, 12000);setTimeout(nfs, 12000);setTimeout(uniq, 12000);setTimeout(change, 12000)
+        }, 10000);
+        clearTimeout(ex);clearTimeout(nfs);clearTimeout(uniq);clearTimeout(chance);clearTimeout(genesis)
+    }, 12000);
 };
 ScrollLine();
 
 const Site = () => {
-  let [amountOfBoxes, setAmountOfBoxes] = useState(0);
-  const maxAmountOfBoxes = 15;
-  const costPerBox = 1;
-  const increment = () => {
-    if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
-  }
-  const decrement = () => {
-    if (amountOfBoxes > 0) return (setAmountOfBoxes(amountOfBoxes - 1));
-  }
-  const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
+    let [amountOfBoxes, setAmountOfBoxes] = useState(0);
+    const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
+    const maxAmountOfBoxes = 15;
+    const costPerBox = 1;
+    const increment = () => {
+        if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
+    }
+    const decrement = () => {
+        if (amountOfBoxes > 0) return (setAmountOfBoxes(amountOfBoxes - 1));
+    }
+    const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
 
-  return (
-    <>
+    const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
+    const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
+
+    return (
+    <> <ConnectWalletModal onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
       <ScrollBox color="black">
         {(cubeLayout) =>  <div >
           <header className={styles.Header} style={{position:'relative',}}>
@@ -105,6 +99,7 @@ const Site = () => {
                    id="BgVideo">
               <source src={video}/>
             </video>
+              <MobileNavigation onOpenConnectWalletModal={openConnectWalletModal}/>
             <MobileNavigation/>
           </header>
           <section className={styles.MainFrame} style={{zIndex:4, transform: 'translate(0px,0px)'}}>

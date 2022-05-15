@@ -137,6 +137,7 @@ body {
   padding: 8px 12px;
   background: #F9D549;
   border-radius: 50px;
+  cursor: pointer;
   font-family: "Helvetica Neue";
   font-style: normal;
   font-weight: 400;
@@ -332,6 +333,7 @@ body {
       padding: 24px 0px;
       background: #F9D549;
       width: 85%;
+      cursor: pointer;
       margin-left: 7.5%;
       border-radius: 20.9687px; }
     .NFT_Flex__LimitedScroll_buy {
