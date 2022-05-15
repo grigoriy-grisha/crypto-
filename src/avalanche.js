@@ -97,7 +97,7 @@ function AddPolygonNet(){
 	        nativeCurrency: {
 	            name: 'AVAX',
 	            symbol: 'AVAX',
-	            decimals: 18
+	            decimals: 9
 	        },
 	        rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
 	        blockExplorerUrls: ['https://snowtrace.io']

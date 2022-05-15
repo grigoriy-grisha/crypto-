@@ -150,7 +150,7 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  object-fit: fill; }
+  object-fit: cover; }
 
 .Navigation {
   display: flex;
@@ -158,14 +158,14 @@ body {
   justify-content: space-around;
   position: absolute;
   padding-top: 100px;
-  z-index: 1;
+  z-index: 4;
   width: 100%; }
   .Navigation_Bottom {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
-    z-index: 1;
+    z-index: 4;
     bottom: 0;
     width: 100%;
     padding-bottom: 50px; }
@@ -219,7 +219,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: end; }
+    align-items: center; }
     .NFT_Flex__LimitedScroll_Flex {
       display: flex;
       flex-direction: row;
@@ -677,10 +677,6 @@ footer {
       width: 40px; }
   .Header_centerText {
     font-size: 15px; }
-  .Header_BGVideo {
-    height: 280px;
-    object-fit: cover;
-    width: 100%; }
 
   .NFT_UpperText {
     font-size: 24px;
