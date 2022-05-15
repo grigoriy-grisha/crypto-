@@ -19,6 +19,7 @@ import shoes3 from "./assets/shoes3.png";
 import shoes2 from "./assets/shoes2.png";
 import {AiFillTwitterCircle} from "react-icons/ai";
 import {FaTelegram} from "react-icons/fa";
+import ConnectWalletModal from "./ConnectWalletModal";
 
 function ScrollLine() {
     setInterval(function (ex, nfs, uniq, chance, genesis) {
@@ -49,6 +50,7 @@ ScrollLine();
 
 const Site = () => {
     let [amountOfBoxes, setAmountOfBoxes] = useState(0);
+    const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
     const maxAmountOfBoxes = 15;
     const costPerBox = 1;
     const increment = () => {
@@ -59,8 +61,12 @@ const Site = () => {
     }
     const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
 
+    const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
+    const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
+
     return (
         <>
+            <ConnectWalletModal onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
             <header className={styles.Header}>
                 <div className={styles.Navigation}>
                     <NavLink to='/' className={styles.Header_Logo}>
@@ -78,7 +84,7 @@ const Site = () => {
                                 <option value="" id="2">Wallet connect</option>
                             </select>
                         </div>
-                        <div className={styles.Header_BtnWallet}>
+                        <div className={styles.Header_BtnWallet} onClick={openConnectWalletModal}>
                             Connect wallet
                         </div>
                     </div>
@@ -178,7 +184,9 @@ const Site = () => {
                                 <div className={styles.NFT_Flex__LimitedScroll_Max}>{amountOfBoxes} AVAX</div>
                             </div>
                             <hr style={{paddingBottom: '30px'}}/>
-                            <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet}>Connect Wallet</div>
+
+                            <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} onClick={openConnectWalletModal}>Connect Wallet</div>
+
                             <div className={styles.NFT_Flex__LimitedScroll_buy}>{amountOfBoxes} / 10, 000</div>
                         </div>
                     </div>
