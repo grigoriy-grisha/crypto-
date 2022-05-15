@@ -25,7 +25,7 @@ import ScrollBox from "./ScrollBox";
 
 
 const Site = () => {
-    let [amountOfBoxes, setAmountOfBoxes] = useState(0);
+    let [amountOfBoxes, setAmountOfBoxes] = useState(1);
     const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
     const maxAmountOfBoxes = 15;
     const costPerBox = 1;
