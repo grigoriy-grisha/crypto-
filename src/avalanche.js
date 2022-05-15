@@ -11,7 +11,7 @@ async function Accept() {
 }
 
 let web3;
-async function web3providerMetamask(){
+async function web3providerMetamask(amountOfBoxes){
 	//Connectmetamask
 	const WEB3_PROVIDER = "https://api.avax.network/ext/bc/C/rpc"
 	// https://blog.polygon.technology/polygon-rpc-gateway-will-provide-a-free-high-performance-connection-to-the-polygon-pos-blockchain/
@@ -23,7 +23,7 @@ async function web3providerMetamask(){
 			web3 = new window.Web3(new window.Web3.providers.HttpProvider(WEB3_PROVIDER));
 			console.log("New web3 object initialized.");
 	}
-	getAccount();
+	getAccount(amountOfBoxes);
 }
 async function web3providerWalletConnect(){
 	//An infura ID, or custom ETH node is required for Ethereum, for Binance Smart Chain you can just use their public endpoint
@@ -57,8 +57,8 @@ async function disconnectWalletConnect(){
 	window.location.reload();
 }
 
-async function getAccount() {
-	ToPolygonNet();
+async function getAccount(amountOfBoxes) {
+	ToPolygonNet(amountOfBoxes);
 	window.ethereum
 			.request({ method: 'eth_requestAccounts'})
 			.then(handleAccountsChanged)
@@ -88,7 +88,7 @@ function handleAccountsChanged(accounts) {
 				document.getElementById('result').innerHTML = accounts[0].slice (0, 6)+'..'+accounts[0].slice (38, 42);
     }
 }
-function AddPolygonNet(){
+function AddPolygonNet(amountOfBoxes){
 	window.ethereum.request({
 	    method: 'wallet_addEthereumChain',
 	    params: [{
@@ -97,7 +97,7 @@ function AddPolygonNet(){
 	        nativeCurrency: {
 	            name: 'AVAX',
 	            symbol: 'AVAX',
-	            decimals: 9
+	            decimals: amountOfBoxes
 	        },
 	        rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
 	        blockExplorerUrls: ['https://snowtrace.io']
@@ -106,7 +106,7 @@ function AddPolygonNet(){
 	.then(() => console.log('network added'))
 	.catch(() => console.log('could not add network'))
 }
-function ToPolygonNet(){
+function ToPolygonNet(amountOfBoxes){
 	window.ethereum.request({
 	    method: 'wallet_switchEthereumChain',
 	    params: [{ chainId: web3.utils.toHex('43114') }],
@@ -115,7 +115,7 @@ function ToPolygonNet(){
 	.catch((e) => {
 	    if (e.code === 4902) {
 	       console.log('network is not available, add it');
-				 AddPolygonNet();
+				 AddPolygonNet(amountOfBoxes);
 	    } else {
 	       console.log('could not set network');
 	    }
@@ -148,12 +148,12 @@ function transaction(){
 	}
 }
 //функция для транзакции в метамаск
-export async function transaction2(){
+export async function transaction2(amountOfBoxes){
 	const ethereum1 = window.ethereum
-	console.log(ethereum1)
+
   const accounts = await ethereum1.request({ method: 'eth_requestAccounts' });
   const account = accounts[0];
-  var valueInWei = web3.utils.toWei(String(parseInt(col.value) * costOneToken), 'ether');
+  var valueInWei = web3.utils.toWei(String(parseInt(amountOfBoxes) * costOneToken), 'ether');
 	var value = web3.utils.toHex(valueInWei);
 	await ethereum1.request({
 		method: 'eth_sendTransaction',
@@ -167,7 +167,7 @@ export async function transaction2(){
 	});
 }
 //функция для транзакции WalletConnect
-export async function transactionWalletConnect(){
+export async function transactionWalletConnect(amountOfBoxes) {
 		var provider = new window.WalletConnectProvider.default(
 		  {
 				rpc: {43114: "https://api.avax.network/ext/bc/C/rpc"}
@@ -179,7 +179,7 @@ export async function transactionWalletConnect(){
 	      account0 = result[0];
 				console.log(account0);
 				// handleAccountsChanged(account0);
-				var valueInWei = web3.utils.toWei(String(parseInt(col.value) * costOneToken), 'ether');
+				var valueInWei = web3.utils.toWei(String(parseInt(amountOfBoxes) * costOneToken), 'ether');
 				var value = web3.utils.toHex(valueInWei);
 				web3.eth.sendTransaction({
 					from: account0, //Адрес счета с которого отправляюся токены - по умолчанию подключенный к сайте счет
