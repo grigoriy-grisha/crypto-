@@ -1,0 +1,1132 @@
+$yellow: #F9D549;
+$font: 'Helvetica Neue';
+$darkgray: #151410;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('HelveticaNeueBoldCondensed.eot');
+  src: local('Helvetica Neue Condensed Bold'), local('HelveticaNeueBoldCondensed'),
+  url('HelveticaNeueBoldCondensed.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueBoldCondensed.woff2') format('woff2'),
+  url('HelveticaNeueBoldCondensed.woff') format('woff'),
+  url('HelveticaNeueBoldCondensed.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('HelveticaNeueBlackCondensed.eot');
+  src: local('Helvetica Neue Condensed Black'), local('HelveticaNeueBlackCondensed'),
+  url('HelveticaNeueBlackCondensed.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueBlackCondensed.woff2') format('woff2'),
+  url('HelveticaNeueBlackCondensed.woff') format('woff'),
+  url('HelveticaNeueBlackCondensed.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Bold.eot');
+  src: local('HelveticaNeueCyr-Bold'),
+  url('HelveticaNeueCyr-Bold.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Bold.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Bold.woff') format('woff'),
+  url('HelveticaNeueCyr-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Light.eot');
+  src: local('HelveticaNeueCyr-Light'),
+  url('HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Light.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Light.woff') format('woff'),
+  url('HelveticaNeueCyr-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Medium.eot');
+  src: local('HelveticaNeueCyr-Medium'),
+  url('HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Medium.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Medium.woff') format('woff'),
+  url('HelveticaNeueCyr-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-MediumItalic.eot');
+  src: local('HelveticaNeueCyr-MediumItalic'),
+  url('HelveticaNeueCyr-MediumItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-MediumItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-MediumItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-LightItalic.eot');
+  src: local('HelveticaNeueCyr-LightItalic'),
+  url('HelveticaNeueCyr-LightItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-LightItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-LightItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-HeavyItalic.eot');
+  src: local('HelveticaNeueCyr-HeavyItalic'),
+  url('HelveticaNeueCyr-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-HeavyItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-HeavyItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-HeavyItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Black.eot');
+  src: local('HelveticaNeueCyr-Black'),
+  url('HelveticaNeueCyr-Black.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Black.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Black.woff') format('woff'),
+  url('HelveticaNeueCyr-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Heavy.eot');
+  src: local('HelveticaNeueCyr-Heavy'),
+  url('HelveticaNeueCyr-Heavy.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Heavy.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Heavy.woff') format('woff'),
+  url('HelveticaNeueCyr-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Italic.eot');
+  src: local('HelveticaNeueCyr-Italic'),
+  url('HelveticaNeueCyr-Italic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Italic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Italic.woff') format('woff'),
+  url('HelveticaNeueCyr-Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Roman.eot');
+  src: local('HelveticaNeueCyr-Roman'),
+  url('HelveticaNeueCyr-Roman.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Roman.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Roman.woff') format('woff'),
+  url('HelveticaNeueCyr-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-BlackItalic.eot');
+  src: local('HelveticaNeueCyr-BlackItalic'),
+  url('HelveticaNeueCyr-BlackItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-BlackItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-BlackItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-UltraLightItalic.eot');
+  src: local('HelveticaNeueCyr-UltraLightItalic'),
+  url('HelveticaNeueCyr-UltraLightItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-UltraLightItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-UltraLightItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-UltraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-BoldItalic.eot');
+  src: local('HelveticaNeueCyr-BoldItalic'),
+  url('HelveticaNeueCyr-BoldItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-BoldItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-BoldItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-ThinItalic.eot');
+  src: local('HelveticaNeueCyr-ThinItalic'),
+  url('HelveticaNeueCyr-ThinItalic.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-ThinItalic.woff2') format('woff2'),
+  url('HelveticaNeueCyr-ThinItalic.woff') format('woff'),
+  url('HelveticaNeueCyr-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-UltraLight.eot');
+  src: local('HelveticaNeueCyr-UltraLight'),
+  url('HelveticaNeueCyr-UltraLight.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-UltraLight.woff2') format('woff2'),
+  url('HelveticaNeueCyr-UltraLight.woff') format('woff'),
+  url('HelveticaNeueCyr-UltraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url('HelveticaNeueCyr-Thin.eot');
+  src: local('HelveticaNeueCyr-Thin'),
+  url('HelveticaNeueCyr-Thin.eot?#iefix') format('embedded-opentype'),
+  url('HelveticaNeueCyr-Thin.woff2') format('woff2'),
+  url('HelveticaNeueCyr-Thin.woff') format('woff'),
+  url('HelveticaNeueCyr-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body{
+  overflow-x: hidden;
+}
+.MainFrame {
+  width: 100vw;
+}
+
+.Header {
+  &_Logo {
+    height: 20px;
+    width: 100px;
+
+    &_Yellow {
+      height: 20px;
+      width: 100px;
+
+      &_mobile {
+        display: none;
+      }
+    }
+  }
+
+  &_centerText {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: $yellow;
+    animation: RightToLeft 5s linear;
+  }
+
+  &_BtnWallet {
+    padding: 8px 12px;
+    background: $yellow;
+    border-radius: 50px;
+    font-family: $font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+  }
+
+  &_BGVideo {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    object-fit: fill;
+  }
+}
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  padding-top: 100px;
+  z-index: 1;
+  width: 100%;
+
+  &_Bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 50px;
+  }
+}
+
+.backgroundMainFrame {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.Bottom {
+  color: $yellow;
+
+  &_LeftText {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: $yellow;
+  }
+
+  &_CenterText {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: $yellow;
+  }
+
+  &_LeftText {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    font-family: $font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: $yellow;
+    cursor: pointer;
+  }
+}
+
+.NFT {
+  text-align: center;
+  background-color: $yellow;
+
+  &_UpperText {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: black;
+    padding: 165px 0 152px 0;
+  }
+
+  &_Flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: end;
+
+    &__LimitedScroll {
+      &_Flex {
+        display: flex;
+        flex-direction: row;
+        padding: 32px;
+
+        &_Flex {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 24px 0;
+          padding-left: 0px;
+          width: 85%;
+          padding-left: 7.5%;
+        }
+      }
+
+      &_Text {
+        font-family: 'Helvetica Neue';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        color: white;
+        text-transform: uppercase;
+        padding-right: 22px;
+      }
+
+      &_SchoesFlex {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &_Avaliable {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: #181714;
+        border-radius: 15px;
+        margin: 0 30px;
+      }
+
+      &_Logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65px;
+        padding-left: 32px;
+
+        &_In {
+          width: 65px;
+        }
+      }
+
+      &_Flex {
+        display: flex;
+        flex-direction: row;
+
+        &_Price {
+          font-family: 'HelveticaNeueCyr';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 17px;
+          color: #5E5A51;
+        }
+
+        &_AVAX {
+          font-family: 'HelveticaNeueCyr';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 25px;
+          line-height: 25px;
+          color: #E9E9E9;
+          padding-top: 10px;
+        }
+      }
+
+      &_Scroller {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        font-size: 40px;
+        color: white;
+        padding: 30px 0;
+
+        &_Btn {
+          &_decrement {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $darkgray;
+            border-radius: 50%;
+            height: 42px;
+            width: 42px;
+            cursor: pointer;
+          }
+
+          &_increment {
+            height: 42px;
+            width: 42px;
+            font-weight: bold;
+            border-radius: 50%;
+            background: #65604B;
+            cursor: pointer;
+          }
+        }
+
+        &_Text {
+          font-family: 'HelveticaNeueCyr';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 41.9375px;
+          line-height: 41px;
+          padding: 0 5vw;
+        }
+      }
+
+      &_Total {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 17px;
+        color: #E9E9E9;
+      }
+
+      &_Max {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 17px;
+        color: #FFFFFF;
+      }
+
+      &_Scroll {
+        padding-bottom: 40px;
+      }
+
+      &_ConnectWallet {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20.9687px;
+        line-height: 21px;
+        padding: 24px 0px;
+        background: $yellow;
+        width: 85%;
+        margin-left: 7.5%;
+        border-radius: 20.9687px;
+      }
+
+      &_buy {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 17px;
+        color: white;
+        margin: 25px 0 20px 0;
+      }
+    }
+
+    hr {
+      width: 85%;
+      margin-left: 7.5%;
+      color: #1A1915;
+    }
+
+    &__Gif {
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      align-items: center;
+      width: 435px;
+      height: 607px;
+      background: black;
+      border-radius: 25px;
+
+      &_img {
+        width: 100%;
+        padding-bottom: 50px;
+        margin-left: 15px;
+      }
+
+      &_Text {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 550;
+        font-size: 23px;
+        line-height: 130%;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+      }
+
+      &_Flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      &_LogoW {
+        position: relative;
+        padding: 20px 0;
+        background: #000000;
+        border-radius: 25px;
+        margin: 0 5vw;
+        top: 35px;
+
+        &_img {
+          width: 160px;
+          height: 27.9px;
+
+        }
+      }
+    }
+
+    &__LimitedScroll {
+      width: 435px;
+      background: #000000;
+      border: 1px solid #000000;
+      border-radius: 25px;
+
+      &_Schoes {
+        &_first {
+          position: absolute;
+          z-index: 4;
+        }
+
+        &_second {
+          position: relative;
+          left: 21.5px;
+          z-index: 3;
+        }
+
+        &_third {
+          position: relative;
+          z-index: 2;
+        }
+
+        &_four {
+          position: relative;
+          left: -23px;
+        }
+      }
+    }
+  }
+
+  &_UnderText {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #000000;
+    padding-top: 100px;
+    z-index: 999;
+    position: relative;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  height: 3px;
+  width: 90%;
+  background: $yellow;
+  border-radius: 5px;
+  background-image: linear-gradient($yellow, $yellow);
+  background-repeat: no-repeat;
+}
+
+/* Input Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: $yellow;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: $yellow;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out;
+}
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: $yellow;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out;
+}
+
+.BlackTransition {
+  position: relative;
+  top: -1vw;
+
+  &_YellowUpper {
+    z-index: 4;
+    position: relative;
+    bottom: 10px;
+    transform: rotate(180deg);
+  }
+
+  &_YellowDown {
+    z-index: 4;
+    position: relative;
+    padding-bottom: -280px;
+  }
+}
+
+.Info {
+  background: $yellow;
+  margin-top: -12px;
+  padding: 0 10vw;
+  z-index: 10;
+  position: relative;
+
+  &_LargeText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #000000;
+    padding-bottom: 100px;
+    z-index: 999;
+    position: relative;
+    animation: RightToLeft 5s linear;
+  }
+
+  &_CenterText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+    padding-bottom: 100px;
+    animation: RightToLeft 5s linear;
+  }
+
+  &_RightText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: right;
+    color: #000000;
+    padding-bottom: 100px;
+    animation: RightToLeft 5s linear;
+  }
+
+  &_LeftText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+    animation: LeftToRight 5s linear;
+  }
+
+  &_Shoes {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &_RER {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 130%;
+    position: relative;
+    z-index: 999;
+    padding-bottom: 180px;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $yellow;
+}
+
+.Footer {
+  &_matrix {
+    height: 6vh;
+
+    &_path {
+      background: $yellow;
+    }
+  }
+
+  &_Logo {
+    width: 100%;
+    text-align: center;
+    height: 20px;
+    padding-bottom: 16px;
+    z-index: 4;
+    background-color: black;
+
+    &_img {
+      width: 116px;
+      height: 20px;
+    }
+  }
+
+  &_Text {
+    /* body/regular/lg */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    padding-bottom: 16px;
+    /* neutral/24 */
+    color: #C8C8C8;
+    background-color: black;
+  }
+
+  &_Flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    background-color: black;
+
+    &_icons {
+      height: 32px;
+      width: 32px;
+      padding-bottom: 60px;
+      color: $darkgray;
+    }
+  }
+
+  &_Copyright {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    font-feature-settings: 'liga' off;
+    color: #838383;
+    opacity: 0.6;
+  }
+}
+
+.MobileNav {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .NFT {
+    &_Flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: inherit !important;
+
+      &__Gif {
+        &_Flex {
+          margin: 0 auto;
+          margin-bottom: 50px;
+        }
+
+        &_LogoW {
+          margin: 0 15vw;
+        }
+      }
+
+      &__LimitedScroll {
+        margin: 0 auto;
+      }
+    }
+
+  }
+  .Footer {
+    &_matrix {
+      height: 3.2vh;
+    }
+  }
+  .Info {
+    &_Shoes {
+      width: 80vw;
+
+      & > img {
+        width: 80vw;
+      }
+    }
+
+    &_RER {
+      padding-bottom: 100px;
+    }
+  }
+  .Navigation {
+    padding-top: 27px;
+  }
+  .MobileNav {
+    display: inherit;
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    z-index: 3;
+  }
+  .Header {
+    &_BtnWallet {
+      display: none;
+    }
+
+    &_centerText {
+      display: none;
+    }
+
+    &_Logo {
+      position: absolute;
+      top: 27px;
+      left: 25px;
+    }
+  }
+  .NavIn {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+  .Hamburger {
+    z-index: 10;
+    position: relative;
+  }
+  .NavButton {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 130%;
+    text-transform: uppercase;
+    list-style: none;
+    padding-bottom: 15px;
+
+    & > a {
+      color: white;
+      text-decoration: none;
+      z-index: 10;
+      position: relative;
+    }
+  }
+  .Header_Logo_White_mobile {
+    display: inherit;
+    position: absolute;
+    z-index: 10;
+    width: 40px;
+  }
+}
+
+@media (max-width: 568px) {
+  .Header {
+    &_Logo {
+      &_Yellow {
+        display: none;
+
+        &_mobile {
+          display: inherit;
+          width: 40px;
+        }
+      }
+    }
+
+    &_centerText {
+      font-size: 15px;
+    }
+
+    &_BGVideo {
+      height: 280px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .NFT {
+    &_UpperText {
+      font-size: 24px;
+      padding: 60px 0;
+    }
+
+    &_Flex {
+      &__Gif {
+        width: 90vw;
+        margin-left: 5vw;
+        height: 500px;
+
+        &_img {
+          margin-left: 0 !important;
+        }
+
+        &_Flex {
+          width: 100%;
+        }
+
+        &_LogoW {
+          margin: 0 15vw;
+        }
+      }
+
+      &__LimitedScroll {
+        width: 90vw;
+        margin-left: 5vw;
+      }
+    }
+
+    &__Gif {
+      &_FLex {
+        align-items: center;
+      }
+    }
+  }
+  .Bottom {
+    &_LeftText {
+      font-size: 12px;
+    }
+
+    &_CenterText {
+      font-size: 12px;
+    }
+
+    &_LeftText {
+      font-size: 12px;
+    }
+  }
+  .Info {
+    &_LargeText {
+      font-size: 24px;
+      padding-top: 10px;
+    }
+
+    &_CenterText {
+      font-size: 15px;
+      padding-bottom: 50px;
+    }
+
+    &_RightText {
+      font-size: 15px;
+      padding-bottom: 50px;
+    }
+
+    &_LeftText {
+      font-size: 15px;
+    }
+
+    &_Shoes {
+      width: 80vw;
+      padding: 50px 0;
+
+      & > img {
+        width: 80vw;
+      }
+    }
+
+    &_RER {
+      font-size: 18px;
+      padding-bottom: 100px;
+    }
+  }
+  .Footer {
+    &_matrix {
+      height: 2.3vh;
+    }
+  }
+  .BlackTransition {
+    &_YellowDown {
+      bottom: 2vh !important;
+    }
+  }
+  .Navigation {
+    &_Bottom {
+      padding-bottom: 0px;
+      position: relative;
+      top: -45px;
+      height: 35px;
+    }
+  }
+  .MainFrame {
+    height: 0vh;
+  }
+  .select_background{
+    display: none;
+  }
+}
+
+.active {
+  border: 2px #F9D549 solid;
+  border-radius: 25px;
+  padding: 0 7px;
+}
+
+a {
+  text-decoration: none;
+  color: $yellow;
+}
+
+.show {
+  opacity: 1;
+  transition: all 1.5s;
+}
+
+.select {
+  width: 170px;
+  height: 39px;
+  border-radius: 25px;
+  border: none;
+  background: #F9D549;
+  border-radius: 50px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 25px;
+  &_background{
+    width: 185px;
+    position: relative;
+    height: 39px;
+    background-color: $yellow;
+    border-radius: 25px;
+    margin-right: 25px;
+  }
+}
+.flex_column{
+  display: flex;
+  flex-direction: row;
+}

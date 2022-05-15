@@ -1,0 +1,786 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url("HelveticaNeueBoldCondensed.eot");
+  src: local("Helvetica Neue Condensed Bold"), local("HelveticaNeueBoldCondensed"), url("HelveticaNeueBoldCondensed.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueBoldCondensed.woff2") format("woff2"), url("HelveticaNeueBoldCondensed.woff") format("woff"), url("HelveticaNeueBoldCondensed.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url("HelveticaNeueBlackCondensed.eot");
+  src: local("Helvetica Neue Condensed Black"), local("HelveticaNeueBlackCondensed"), url("HelveticaNeueBlackCondensed.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueBlackCondensed.woff2") format("woff2"), url("HelveticaNeueBlackCondensed.woff") format("woff"), url("HelveticaNeueBlackCondensed.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Bold.eot");
+  src: local("HelveticaNeueCyr-Bold"), url("HelveticaNeueCyr-Bold.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Bold.woff2") format("woff2"), url("HelveticaNeueCyr-Bold.woff") format("woff"), url("HelveticaNeueCyr-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Light.eot");
+  src: local("HelveticaNeueCyr-Light"), url("HelveticaNeueCyr-Light.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Light.woff2") format("woff2"), url("HelveticaNeueCyr-Light.woff") format("woff"), url("HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Medium.eot");
+  src: local("HelveticaNeueCyr-Medium"), url("HelveticaNeueCyr-Medium.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Medium.woff2") format("woff2"), url("HelveticaNeueCyr-Medium.woff") format("woff"), url("HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-MediumItalic.eot");
+  src: local("HelveticaNeueCyr-MediumItalic"), url("HelveticaNeueCyr-MediumItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-MediumItalic.woff2") format("woff2"), url("HelveticaNeueCyr-MediumItalic.woff") format("woff"), url("HelveticaNeueCyr-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-LightItalic.eot");
+  src: local("HelveticaNeueCyr-LightItalic"), url("HelveticaNeueCyr-LightItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-LightItalic.woff2") format("woff2"), url("HelveticaNeueCyr-LightItalic.woff") format("woff"), url("HelveticaNeueCyr-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-HeavyItalic.eot");
+  src: local("HelveticaNeueCyr-HeavyItalic"), url("HelveticaNeueCyr-HeavyItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-HeavyItalic.woff2") format("woff2"), url("HelveticaNeueCyr-HeavyItalic.woff") format("woff"), url("HelveticaNeueCyr-HeavyItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Black.eot");
+  src: local("HelveticaNeueCyr-Black"), url("HelveticaNeueCyr-Black.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Black.woff2") format("woff2"), url("HelveticaNeueCyr-Black.woff") format("woff"), url("HelveticaNeueCyr-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Heavy.eot");
+  src: local("HelveticaNeueCyr-Heavy"), url("HelveticaNeueCyr-Heavy.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Heavy.woff2") format("woff2"), url("HelveticaNeueCyr-Heavy.woff") format("woff"), url("HelveticaNeueCyr-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Italic.eot");
+  src: local("HelveticaNeueCyr-Italic"), url("HelveticaNeueCyr-Italic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Italic.woff2") format("woff2"), url("HelveticaNeueCyr-Italic.woff") format("woff"), url("HelveticaNeueCyr-Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Roman.eot");
+  src: local("HelveticaNeueCyr-Roman"), url("HelveticaNeueCyr-Roman.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Roman.woff2") format("woff2"), url("HelveticaNeueCyr-Roman.woff") format("woff"), url("HelveticaNeueCyr-Roman.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-BlackItalic.eot");
+  src: local("HelveticaNeueCyr-BlackItalic"), url("HelveticaNeueCyr-BlackItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-BlackItalic.woff2") format("woff2"), url("HelveticaNeueCyr-BlackItalic.woff") format("woff"), url("HelveticaNeueCyr-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-UltraLightItalic.eot");
+  src: local("HelveticaNeueCyr-UltraLightItalic"), url("HelveticaNeueCyr-UltraLightItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-UltraLightItalic.woff2") format("woff2"), url("HelveticaNeueCyr-UltraLightItalic.woff") format("woff"), url("HelveticaNeueCyr-UltraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-BoldItalic.eot");
+  src: local("HelveticaNeueCyr-BoldItalic"), url("HelveticaNeueCyr-BoldItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-BoldItalic.woff2") format("woff2"), url("HelveticaNeueCyr-BoldItalic.woff") format("woff"), url("HelveticaNeueCyr-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-ThinItalic.eot");
+  src: local("HelveticaNeueCyr-ThinItalic"), url("HelveticaNeueCyr-ThinItalic.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-ThinItalic.woff2") format("woff2"), url("HelveticaNeueCyr-ThinItalic.woff") format("woff"), url("HelveticaNeueCyr-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-UltraLight.eot");
+  src: local("HelveticaNeueCyr-UltraLight"), url("HelveticaNeueCyr-UltraLight.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-UltraLight.woff2") format("woff2"), url("HelveticaNeueCyr-UltraLight.woff") format("woff"), url("HelveticaNeueCyr-UltraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal; }
+@font-face {
+  font-family: 'HelveticaNeueCyr';
+  src: url("HelveticaNeueCyr-Thin.eot");
+  src: local("HelveticaNeueCyr-Thin"), url("HelveticaNeueCyr-Thin.eot?#iefix") format("embedded-opentype"), url("HelveticaNeueCyr-Thin.woff2") format("woff2"), url("HelveticaNeueCyr-Thin.woff") format("woff"), url("HelveticaNeueCyr-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  overflow-x: hidden; }
+
+.MainFrame {
+  width: 100vw; }
+
+.Header_Logo {
+  height: 20px;
+  width: 100px; }
+  .Header_Logo_Yellow {
+    height: 20px;
+    width: 100px; }
+    .Header_Logo_Yellow_mobile {
+      display: none; }
+.Header_centerText {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #F9D549;
+  animation: RightToLeft 5s linear; }
+.Header_BtnWallet {
+  padding: 8px 12px;
+  background: #F9D549;
+  border-radius: 50px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000; }
+.Header_BGVideo {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  object-fit: fill; }
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  padding-top: 100px;
+  z-index: 1;
+  width: 100%; }
+  .Navigation_Bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 50px; }
+
+.backgroundMainFrame {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  bottom: 0; }
+
+.Bottom {
+  color: #F9D549; }
+  .Bottom_LeftText {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #F9D549; }
+  .Bottom_CenterText {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #F9D549; }
+  .Bottom_LeftText {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    color: #F9D549;
+    cursor: pointer; }
+
+.NFT {
+  text-align: center;
+  background-color: #F9D549; }
+  .NFT_UpperText {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: black;
+    padding: 165px 0 152px 0; }
+  .NFT_Flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: end; }
+    .NFT_Flex__LimitedScroll_Flex {
+      display: flex;
+      flex-direction: row;
+      padding: 32px; }
+      .NFT_Flex__LimitedScroll_Flex_Flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 24px 0;
+        padding-left: 0px;
+        width: 85%;
+        padding-left: 7.5%; }
+    .NFT_Flex__LimitedScroll_Text {
+      font-family: 'Helvetica Neue';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 36px;
+      color: white;
+      text-transform: uppercase;
+      padding-right: 22px; }
+    .NFT_Flex__LimitedScroll_SchoesFlex {
+      display: flex;
+      flex-direction: row; }
+    .NFT_Flex__LimitedScroll_Avaliable {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: #181714;
+      border-radius: 15px;
+      margin: 0 30px; }
+    .NFT_Flex__LimitedScroll_Logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 65px;
+      padding-left: 32px; }
+      .NFT_Flex__LimitedScroll_Logo_In {
+        width: 65px; }
+    .NFT_Flex__LimitedScroll_Flex {
+      display: flex;
+      flex-direction: row; }
+      .NFT_Flex__LimitedScroll_Flex_Price {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 17px;
+        color: #5E5A51; }
+      .NFT_Flex__LimitedScroll_Flex_AVAX {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 25px;
+        color: #E9E9E9;
+        padding-top: 10px; }
+    .NFT_Flex__LimitedScroll_Scroller {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      font-size: 40px;
+      color: white;
+      padding: 30px 0; }
+      .NFT_Flex__LimitedScroll_Scroller_Btn_decrement {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #151410;
+        border-radius: 50%;
+        height: 42px;
+        width: 42px;
+        cursor: pointer; }
+      .NFT_Flex__LimitedScroll_Scroller_Btn_increment {
+        height: 42px;
+        width: 42px;
+        font-weight: bold;
+        border-radius: 50%;
+        background: #65604B;
+        cursor: pointer; }
+      .NFT_Flex__LimitedScroll_Scroller_Text {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 41.9375px;
+        line-height: 41px;
+        padding: 0 5vw; }
+    .NFT_Flex__LimitedScroll_Total {
+      font-family: 'HelveticaNeueCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 17px;
+      color: #E9E9E9; }
+    .NFT_Flex__LimitedScroll_Max {
+      font-family: 'HelveticaNeueCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 17px;
+      color: #FFFFFF; }
+    .NFT_Flex__LimitedScroll_Scroll {
+      padding-bottom: 40px; }
+    .NFT_Flex__LimitedScroll_ConnectWallet {
+      font-family: 'HelveticaNeueCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20.9687px;
+      line-height: 21px;
+      padding: 24px 0px;
+      background: #F9D549;
+      width: 85%;
+      margin-left: 7.5%;
+      border-radius: 20.9687px; }
+    .NFT_Flex__LimitedScroll_buy {
+      font-family: 'HelveticaNeueCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 17px;
+      color: white;
+      margin: 25px 0 20px 0; }
+    .NFT_Flex hr {
+      width: 85%;
+      margin-left: 7.5%;
+      color: #1A1915; }
+    .NFT_Flex__Gif {
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      align-items: center;
+      width: 435px;
+      height: 607px;
+      background: black;
+      border-radius: 25px; }
+      .NFT_Flex__Gif_img {
+        width: 100%;
+        padding-bottom: 50px;
+        margin-left: 15px; }
+      .NFT_Flex__Gif_Text {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 550;
+        font-size: 23px;
+        line-height: 130%;
+        color: #FFFFFF;
+        margin-bottom: 20px; }
+      .NFT_Flex__Gif_Flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+      .NFT_Flex__Gif_LogoW {
+        position: relative;
+        padding: 20px 0;
+        background: #000000;
+        border-radius: 25px;
+        margin: 0 5vw;
+        top: 35px; }
+        .NFT_Flex__Gif_LogoW_img {
+          width: 160px;
+          height: 27.9px; }
+    .NFT_Flex__LimitedScroll {
+      width: 435px;
+      background: #000000;
+      border: 1px solid #000000;
+      border-radius: 25px; }
+      .NFT_Flex__LimitedScroll_Schoes_first {
+        position: absolute;
+        z-index: 4; }
+      .NFT_Flex__LimitedScroll_Schoes_second {
+        position: relative;
+        left: 21.5px;
+        z-index: 3; }
+      .NFT_Flex__LimitedScroll_Schoes_third {
+        position: relative;
+        z-index: 2; }
+      .NFT_Flex__LimitedScroll_Schoes_four {
+        position: relative;
+        left: -23px; }
+  .NFT_UnderText {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #000000;
+    padding-top: 100px;
+    z-index: 999;
+    position: relative; }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  height: 3px;
+  width: 90%;
+  background: #F9D549;
+  border-radius: 5px;
+  background-image: linear-gradient(#F9D549, #F9D549);
+  background-repeat: no-repeat; }
+
+/* Input Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #F9D549;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out; }
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #F9D549;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out; }
+
+input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #F9D549;
+  cursor: ew-resize;
+  transition: background .3s ease-in-out; }
+
+.BlackTransition {
+  position: relative;
+  top: -1vw; }
+  .BlackTransition_YellowUpper {
+    z-index: 4;
+    position: relative;
+    bottom: 10px;
+    transform: rotate(180deg); }
+  .BlackTransition_YellowDown {
+    z-index: 4;
+    position: relative;
+    padding-bottom: -280px; }
+
+.Info {
+  background: #F9D549;
+  margin-top: -12px;
+  padding: 0 10vw;
+  z-index: 10;
+  position: relative; }
+  .Info_LargeText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #000000;
+    padding-bottom: 100px;
+    z-index: 999;
+    position: relative;
+    animation: RightToLeft 5s linear; }
+  .Info_CenterText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+    padding-bottom: 100px;
+    animation: RightToLeft 5s linear; }
+  .Info_RightText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: right;
+    color: #000000;
+    padding-bottom: 100px;
+    animation: RightToLeft 5s linear; }
+  .Info_LeftText {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+    animation: LeftToRight 5s linear; }
+  .Info_Shoes {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center; }
+  .Info_RER {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 130%;
+    position: relative;
+    z-index: 999;
+    padding-bottom: 180px;
+    text-transform: uppercase;
+    color: #000000; }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #F9D549; }
+
+.Footer_matrix {
+  height: 6vh; }
+  .Footer_matrix_path {
+    background: #F9D549; }
+.Footer_Logo {
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  padding-bottom: 16px;
+  z-index: 4;
+  background-color: black; }
+  .Footer_Logo_img {
+    width: 116px;
+    height: 20px; }
+.Footer_Text {
+  /* body/regular/lg */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  padding-bottom: 16px;
+  /* neutral/24 */
+  color: #C8C8C8;
+  background-color: black; }
+.Footer_Flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  background-color: black; }
+  .Footer_Flex_icons {
+    height: 32px;
+    width: 32px;
+    padding-bottom: 60px;
+    color: #151410; }
+.Footer_Copyright {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  font-feature-settings: 'liga' off;
+  color: #838383;
+  opacity: 0.6; }
+
+.MobileNav {
+  display: none; }
+
+@media (max-width: 1024px) {
+  .NFT_Flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: inherit !important; }
+    .NFT_Flex__Gif_Flex {
+      margin: 0 auto;
+      margin-bottom: 50px; }
+    .NFT_Flex__Gif_LogoW {
+      margin: 0 15vw; }
+    .NFT_Flex__LimitedScroll {
+      margin: 0 auto; }
+
+  .Footer_matrix {
+    height: 3.2vh; }
+
+  .Info_Shoes {
+    width: 80vw; }
+    .Info_Shoes > img {
+      width: 80vw; }
+  .Info_RER {
+    padding-bottom: 100px; }
+
+  .Navigation {
+    padding-top: 27px; }
+
+  .MobileNav {
+    display: inherit;
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    z-index: 3; }
+
+  .Header_BtnWallet {
+    display: none; }
+  .Header_centerText {
+    display: none; }
+  .Header_Logo {
+    position: absolute;
+    top: 27px;
+    left: 25px; }
+
+  .NavIn {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .NavIn:before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8); }
+
+  .Hamburger {
+    z-index: 10;
+    position: relative; }
+
+  .NavButton {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 130%;
+    text-transform: uppercase;
+    list-style: none;
+    padding-bottom: 15px; }
+    .NavButton > a {
+      color: white;
+      text-decoration: none;
+      z-index: 10;
+      position: relative; }
+
+  .Header_Logo_White_mobile {
+    display: inherit;
+    position: absolute;
+    z-index: 10;
+    width: 40px; } }
+@media (max-width: 568px) {
+  .Header_Logo_Yellow {
+    display: none; }
+    .Header_Logo_Yellow_mobile {
+      display: inherit;
+      width: 40px; }
+  .Header_centerText {
+    font-size: 15px; }
+  .Header_BGVideo {
+    height: 280px;
+    object-fit: cover;
+    width: 100%; }
+
+  .NFT_UpperText {
+    font-size: 24px;
+    padding: 60px 0; }
+  .NFT_Flex__Gif {
+    width: 90vw;
+    margin-left: 5vw;
+    height: 500px; }
+    .NFT_Flex__Gif_img {
+      margin-left: 0 !important; }
+    .NFT_Flex__Gif_Flex {
+      width: 100%; }
+    .NFT_Flex__Gif_LogoW {
+      margin: 0 15vw; }
+  .NFT_Flex__LimitedScroll {
+    width: 90vw;
+    margin-left: 5vw; }
+  .NFT__Gif_FLex {
+    align-items: center; }
+
+  .Bottom_LeftText {
+    font-size: 12px; }
+  .Bottom_CenterText {
+    font-size: 12px; }
+  .Bottom_LeftText {
+    font-size: 12px; }
+
+  .Info_LargeText {
+    font-size: 24px;
+    padding-top: 10px; }
+  .Info_CenterText {
+    font-size: 15px;
+    padding-bottom: 50px; }
+  .Info_RightText {
+    font-size: 15px;
+    padding-bottom: 50px; }
+  .Info_LeftText {
+    font-size: 15px; }
+  .Info_Shoes {
+    width: 80vw;
+    padding: 50px 0; }
+    .Info_Shoes > img {
+      width: 80vw; }
+  .Info_RER {
+    font-size: 18px;
+    padding-bottom: 100px; }
+
+  .Footer_matrix {
+    height: 2.3vh; }
+
+  .BlackTransition_YellowDown {
+    bottom: 2vh !important; }
+
+  .Navigation_Bottom {
+    padding-bottom: 0px;
+    position: relative;
+    top: -45px;
+    height: 35px; }
+
+  .MainFrame {
+    height: 0vh; }
+
+  .select_background {
+    display: none; } }
+.active {
+  border: 2px #F9D549 solid;
+  border-radius: 25px;
+  padding: 0 7px; }
+
+a {
+  text-decoration: none;
+  color: #F9D549; }
+
+.show {
+  opacity: 1;
+  transition: all 1.5s; }
+
+.select {
+  width: 170px;
+  height: 39px;
+  border-radius: 25px;
+  border: none;
+  background: #F9D549;
+  border-radius: 50px;
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 25px; }
+  .select_background {
+    width: 185px;
+    position: relative;
+    height: 39px;
+    background-color: #F9D549;
+    border-radius: 25px;
+    margin-right: 25px; }
+
+.flex_column {
+  display: flex;
+  flex-direction: row; }
+
+/*# sourceMappingURL=Main.module.css.map */
