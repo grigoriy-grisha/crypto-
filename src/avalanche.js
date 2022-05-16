@@ -106,7 +106,7 @@ function AddPolygonNet(amountOfBoxes){
 	.then(() => console.log('network added'))
 	.catch(() => console.log('could not add network'))
 }
-function ToPolygonNet(amountOfBoxes){
+function ToPolygonNet(amountOfBoxes) {
 	window.ethereum.request({
 	    method: 'wallet_switchEthereumChain',
 	    params: [{ chainId: web3.utils.toHex('43114') }],
@@ -148,7 +148,7 @@ function transaction(){
 	}
 }
 //функция для транзакции в метамаск
-export async function transaction2(amountOfBoxes){
+export async function transaction2(amountOfBoxes) {
 	const ethereum1 = window.ethereum
 
   const accounts = await ethereum1.request({ method: 'eth_requestAccounts' });

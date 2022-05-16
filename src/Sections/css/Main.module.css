@@ -219,7 +219,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center; }
+    align-items: self-end; }
     .NFT_Flex__LimitedScroll_Flex {
       display: flex;
       flex-direction: row;

@@ -357,7 +357,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: end;
+    align-items: self-end;
 
     &__LimitedScroll {
       &_Flex {
