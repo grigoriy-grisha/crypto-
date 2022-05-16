@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f4fca14.css",
-    "main.js": "/static/js/main.07cdd146.js",
-    "static/media/mobile_video.mov": "/static/media/mobile_video.09ace39d1fb223c05ea2.mov",
-    "static/media/video bg.mp4": "/static/media/video bg.1d606a80d9ea254873ce.mp4",
+    "main.css": "/static/css/main.960fcf09.css",
+    "main.js": "/static/js/main.65e07fcd.js",
     "static/media/gif.gif": "/static/media/gif.d04b469408505096e7b9.gif",
     "static/media/extra_mobile_video.mov": "/static/media/extra_mobile_video.772c78b0d4634cef7603.mov",
+    "static/media/video bg.mp4": "/static/media/video bg.533092b4d649b9c61a02.mp4",
+    "static/media/mobile_video.mp4": "/static/media/mobile_video.5435f5b494a79d73edb4.mp4",
     "static/media/shoes2.png": "/static/media/shoes2.fc0fbcb41e9155b7a14d.png",
     "static/media/shoes1.png": "/static/media/shoes1.1046d41db468aaaec00b.png",
     "static/media/shoes3.png": "/static/media/shoes3.7451609cb479ea2de20d.png",
@@ -86,11 +86,11 @@
     "static/media/HelveticaNeueCyr-Bold.woff2": "/static/media/HelveticaNeueCyr-Bold.a737902275e936eaf242.woff2",
     "static/media/HelveticaNeueCyr-Heavy.woff2": "/static/media/HelveticaNeueCyr-Heavy.31abf4828115acce8d4e.woff2",
     "index.html": "/index.html",
-    "main.8f4fca14.css.map": "/static/css/main.8f4fca14.css.map",
-    "main.07cdd146.js.map": "/static/js/main.07cdd146.js.map"
+    "main.960fcf09.css.map": "/static/css/main.960fcf09.css.map",
+    "main.65e07fcd.js.map": "/static/js/main.65e07fcd.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f4fca14.css",
-    "static/js/main.07cdd146.js"
+    "static/css/main.960fcf09.css",
+    "static/js/main.65e07fcd.js"
   ]
 }

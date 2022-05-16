@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import LogoY from "./assets/Logo_yellow.png";
 import logoY_mobile from "./assets/LogoY_mobile.png";
 import video from "./assets/video bg.mp4";
-import mobileVideo from './assets/mobile_video.mov'
+import mobileVideo from './assets/mobile_video.mp4'
 import extra_mobile_video from './assets/extra_mobile_video.mov'
 import "./avalanche";
 import MobileNavigation from "./Sections/MobileNav/MobileNavigation";
@@ -191,7 +191,7 @@ const Site = () => {
               </div>
               <div className={styles.NFT_Flex__LimitedScroll_Scroller}>
                 <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_decrement}
-                     onClick={decrement}>-
+                     onClick={decrement}>−
                 </div>
                 <div className={styles.NFT_Flex__LimitedScroll_Scroller_Text}>{amountOfBoxes}</div>
                 <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_increment}
@@ -211,7 +211,7 @@ const Site = () => {
               <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} style={{zIndex: 4}} onClick={() => {
                 if (!account) {
                   openConnectWalletModal()
-                  setMode("BUY")
+                  setMode("CONNECT")
                   return
                 }
 

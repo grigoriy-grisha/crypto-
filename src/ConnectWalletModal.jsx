@@ -52,7 +52,6 @@ const ConnectWalletModal = props => {
             })
         }
     }
-    alert(props.userCameFrom)
 
     const handleWallet = () => {
         if (props.mode === "BUY" && props.accountType == WALLET_CONNECT_ID) {
