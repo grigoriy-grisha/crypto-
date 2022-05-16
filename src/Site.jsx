@@ -22,30 +22,49 @@ import shoes3 from "./assets/shoes3.png";
 import shoes2 from "./assets/shoes2.png";
 import ConnectWalletModal from "./ConnectWalletModal";
 import ScrollBox from "./ScrollBox";
-import {Accept} from "./avalanche";
+import {Accept, transaction} from "./avalanche";
 
 
 const Site = () => {
   let [amountOfBoxes, setAmountOfBoxes] = useState(1);
   const [connectText, setConnectText] = useState("Connect wallet")
+  const [account,setAccount] = useState(null)
+  const [accountType, setAccountType] = useState(localStorage.getItem("id"))
   const [mode, setMode] = useState("CONNECT")
   const [muted, setMuted] = useState(true)
   const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
   const maxAmountOfBoxes = 10;
   const costPerBox = 9;
+  const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
+  const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
+  // const [_,setForceUpdate] = useState({})
+
+  useEffect(() => {
+    if (window.ethereum.selectedAddress) {
+      setAccount(window.ethereum.selectedAddress)
+      setConnectText(window.ethereum.selectedAddress.slice(0, 6) + '..' + window.ethereum.selectedAddress.slice(38, 42))
+    }
+  })
+
   const increment = () => {
     if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
   }
+
   const decrement = () => {
     if (amountOfBoxes > 0) return (setAmountOfBoxes(amountOfBoxes - 1));
   }
+
+  useEffect(() => {
+    closeConnectWalletModal()
+  },[account])
+
   const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
 
-  const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
-  const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
+
 
   const handleAdressChanged = (accounts) => {
     if (accounts.length === 0) return
+    setAccount(accounts[0])
     setConnectText(accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
   }
 
@@ -62,12 +81,14 @@ const Site = () => {
   }, [])
 
   const connectToAccount = (id) => {
+    // window.web3.ko
+    localStorage.setItem('id', id)
     Accept(id, handleAdressChanged)
   }
 
 
   return (
-    <>  <ConnectWalletModal mode={mode} amountOfBoxes={amountOfBoxes} connectToAccount={connectToAccount}
+    <>  <ConnectWalletModal  accountType={accountType} mode={mode} amountOfBoxes={amountOfBoxes} connectToAccount={connectToAccount}
                             onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
       <ScrollBox color="black">
         {(cubeLayout) => <div>
@@ -99,6 +120,7 @@ const Site = () => {
               </div>
               <div className={styles.flex_column}>
                 <div className={styles.Header_BtnWallet} onClick={() => {
+                  if (account) return
                   openConnectWalletModal()
                   setMode("CONNECT")
                 }} style={{zIndex: 4}}>
@@ -184,8 +206,13 @@ const Site = () => {
               </div>
               {/*<hr style={{paddingBottom: '30px'}}/>*/}
               <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} style={{zIndex: 4}} onClick={() => {
-                openConnectWalletModal()
-                setMode("BUY")
+                if (!account) {
+                  openConnectWalletModal()
+                  setMode("BUY")
+                  return
+                }
+
+                transaction(window.ethereum?.isMetaMask ? 1 :  2, amountOfBoxes,handleAdressChanged)
               }}>Buy
               </div>
               {/*<div className={styles.NFT_Flex__LimitedScroll_buy}>{amountOfBoxes} / 10, 000</div>*/}

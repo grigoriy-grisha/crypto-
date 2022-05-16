@@ -24,7 +24,7 @@ const ConnectWalletModal = props => {
     }, []);
 
     const handleMetamask = () => {
-        if (props.mode === "BUY") {
+        if (props.mode === "BUY" && props.accountType == METAMASK_ID) {
             transaction(METAMASK_ID, props.amountOfBoxes)
         }
         if (props.mode === "CONNECT") {
@@ -33,7 +33,7 @@ const ConnectWalletModal = props => {
     }
 
     const handleWallet = () => {
-        if (props.mode === "BUY") {
+        if (props.mode === "BUY" && props.accountType == WALLET_CONNECT_ID) {
             transaction(WALLET_CONNECT_ID, props.amountOfBoxes)
         }
         if (props.mode === "CONNECT") {

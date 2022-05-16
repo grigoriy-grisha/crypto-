@@ -122,9 +122,9 @@ function ToPolygonNet() {
 }
 
 //eth_sendTransaction
-export function transaction(id, amountOfBoxes){
+export function transaction(id, amountOfBoxes,callback){
 	if (id === 1) {
-		web3providerMetamask();
+		web3providerMetamask(callback);
 		const yourNetworkId = '43114'
 		web3.eth.net.getId()
 		.then((networkId) => {
@@ -140,7 +140,7 @@ export function transaction(id, amountOfBoxes){
 			// unable to retrieve network id
 		});
 	} else {
-		transactionWalletConnect(amountOfBoxes);
+		transactionWalletConnect(amountOfBoxes,callback);
 	}
 }
 //функция для транзакции в метамаск
@@ -163,7 +163,7 @@ export async function transaction2(amountOfBoxes) {
 	});
 }
 //функция для транзакции WalletConnect
-export async function transactionWalletConnect(amountOfBoxes) {
+export async function transactionWalletConnect(amountOfBoxes,callback) {
 		var provider = new window.WalletConnectProvider.default(
 		  {
 				rpc: {43114: "https://api.avax.network/ext/bc/C/rpc"}
@@ -174,6 +174,7 @@ export async function transactionWalletConnect(amountOfBoxes) {
 	    web3.eth.getAccounts().then(function(result){
 	      account0 = result[0];
 				console.log(account0);
+				callback(result)
 				// handleAccountsChanged(account0);
 				var valueInWei = web3.utils.toWei(String(parseInt(amountOfBoxes) * costOneToken), 'ether');
 				var value = web3.utils.toHex(valueInWei);
