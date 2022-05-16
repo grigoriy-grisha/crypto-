@@ -583,6 +583,7 @@ body{
       background: #000000;
       border: 1px solid #000000;
       border-radius: 25px;
+      height: 565px;
 
       &_Schoes {
         &_first {
@@ -666,8 +667,9 @@ input[type="range"]::-ms-thumb {
 }
 
 .BlackTransition {
+  width: 102%;
   position: relative;
-  top: -1vw;
+  width: 102%;
 
   &_YellowUpper {
     z-index: 4;
@@ -689,6 +691,7 @@ input[type="range"]::-ms-thumb {
   padding: 0 10vw;
   //z-index: 10;
   position: relative;
+  width: 102%;
 
   &_LargeText {
     font-family: 'HelveticaNeueCyr';
@@ -1075,7 +1078,6 @@ footer {
     &_Bottom {
       padding-bottom: 0px;
       position: relative;
-      top: -45px;
       height: 35px;
     }
   }
@@ -1130,4 +1132,10 @@ a {
 .flex_column{
   display: flex;
   flex-direction: row;
+}
+
+@media (max-width: 460px) {
+  .Header_BGVideo {
+    //object-fit: fill;
+  }
 }

@@ -48,7 +48,7 @@ const ConnectWalletModal = props => {
             unmountOnExit
             timeout={{ enter: 0, exit: 300 }}
         >
-            <div className="modal" onClick={props.onClose}>
+            <div className="modal" onClick={props.onClose} style={{textAlign:'center'}}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
                     <div className="modal-body">
                         <div className="modal-pay-var" onClick={handleMetamask}>

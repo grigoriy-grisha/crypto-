@@ -167,7 +167,7 @@ body {
     position: absolute;
     z-index: 4;
     bottom: 0;
-    width: 100%;
+    width: 90%;
     padding-bottom: 50px; }
 
 .backgroundMainFrame {
@@ -207,7 +207,7 @@ body {
 .NFT {
   text-align: center;
   background-color: #F9D549;
-  width: 104%;}
+  width: 100%;}
   .NFT_UpperText {
     font-family: 'Helvetica Neue';
     font-style: normal;
@@ -388,7 +388,9 @@ body {
       width: 435px;
       background: #000000;
       border: 1px solid #000000;
-      border-radius: 25px; }
+      border-radius: 25px;
+      height: 565px;
+    }
       .NFT_Flex__LimitedScroll_Schoes_first {
         position: absolute;
         z-index: 4; }
@@ -733,8 +735,6 @@ footer {
 
   .Navigation_Bottom {
     padding-bottom: 0px;
-    position: relative;
-    top: -45px;
     height: 35px; }
 
   .MainFrame {
@@ -783,3 +783,9 @@ a {
   flex-direction: row; }
 
 /*# sourceMappingURL=Main.module.css.map */
+
+@media (max-width: 460px) {
+  .Header_BGVideo {
+    /*object-fit: fill;*/
+  }
+}
