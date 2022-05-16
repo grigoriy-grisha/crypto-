@@ -39,8 +39,11 @@ const Site = () => {
   const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
   // const [_,setForceUpdate] = useState({})
 
+  const queryString = window.location.search;
+  let userCameFrom = queryString.split('?')[1];
+
   useEffect(() => {
-    if (window.ethereum.selectedAddress) {
+    if (window.ethereum?.selectedAddress) {
       setAccount(window.ethereum.selectedAddress)
       setConnectText(window.ethereum.selectedAddress.slice(0, 6) + '..' + window.ethereum.selectedAddress.slice(38, 42))
     }
@@ -88,7 +91,7 @@ const Site = () => {
 
 
   return (
-    <>  <ConnectWalletModal  accountType={accountType} mode={mode} amountOfBoxes={amountOfBoxes} connectToAccount={connectToAccount}
+    <>  <ConnectWalletModal  userCameFrom={userCameFrom} accountType={accountType} mode={mode} amountOfBoxes={amountOfBoxes} connectToAccount={connectToAccount}
                             onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
       <ScrollBox color="black">
         {(cubeLayout) => <div>

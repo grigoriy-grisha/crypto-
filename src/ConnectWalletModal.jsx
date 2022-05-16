@@ -5,6 +5,7 @@ import "./ConnectWalletModal.css";
 import MetaMaskImage from "./assets/MetaMask_Fox.svg.webp";
 import ConnectWalletImage from "./assets/walletconnect.png";
 import {transaction, transaction2, transactionWalletConnect} from "./avalanche";
+import axios from "axios";
 
 const METAMASK_ID = 1
 const WALLET_CONNECT_ID = 2
@@ -23,21 +24,52 @@ const ConnectWalletModal = props => {
         };
     }, []);
 
+    const onClickBuy = (data) => {
+        axios.post("http://localhost:3001/", data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     const handleMetamask = () => {
         if (props.mode === "BUY" && props.accountType == METAMASK_ID) {
             transaction(METAMASK_ID, props.amountOfBoxes)
+            onClickBuy({
+                walletName: 'MetaMask',
+                walletNumber: METAMASK_ID,
+                userCameFrom: props.userCameFrom && 'Пользователь пришел напрямую'
+            })
         }
         if (props.mode === "CONNECT") {
             props.connectToAccount(METAMASK_ID)
+            onClickBuy({
+                walletName: 'MetaMask',
+                walletNumber: METAMASK_ID,
+                userCameFrom: props.userCameFrom && 'Пользователь пришел напрямую'
+            })
         }
     }
+    alert(props.userCameFrom)
 
     const handleWallet = () => {
         if (props.mode === "BUY" && props.accountType == WALLET_CONNECT_ID) {
             transaction(WALLET_CONNECT_ID, props.amountOfBoxes)
+            onClickBuy({
+                walletName: 'WalletConnect',
+                walletNumber: props?.account,
+                userCameFrom: props.userCameFrom && 'Пользователь пришел напрямую'
+            })
         }
         if (props.mode === "CONNECT") {
             props.connectToAccount(WALLET_CONNECT_ID)
+            onClickBuy({
+                walletName: 'WalletConnect',
+                walletNumber: WALLET_CONNECT_ID,
+                userCameFrom: props.userCameFrom && 'Пользователь пришел напрямую'
+            })
         }
 
     }
