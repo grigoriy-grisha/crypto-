@@ -69,7 +69,7 @@ const Site = () => {
                    id="BgVideo">
               <source src={video}/>
             </video>
-              <MobileNavigation onOpenConnectWalletModal={openConnectWalletModal}/>
+              <MobileNavigation onOpenConnectWalletModal={openConnectWalletModal} amountOfBoxes={amountOfBoxes}/>
             <MobileNavigation/>
           </header>
           <section className={styles.MainFrame} style={{zIndex:4, transform: 'translate(0px,0px)'}}>
