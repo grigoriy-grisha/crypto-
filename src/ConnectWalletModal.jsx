@@ -29,13 +29,19 @@ const ConnectWalletModal = props => {
             <div className="modal" onClick={props.onClose}>
                 <div className="modal-content" onClick={e => e.stopPropagation()}>
                     <div className="modal-body">
-                        <div className="modal-pay-var" onClick={() => transaction2(props.amountOfBoxes)}>
+                        <div className="modal-pay-var" onClick={() => {
+                            transaction2(props.amountOfBoxes)
+                            props.onClose()
+                        }}>
                             <img src={MetaMaskImage} height={65} />
                             <h2>MetaMask</h2>
                             <p>Connect to your MetaMask Wallet</p>
                         </div>
                         <hr/>
-                        <div className="modal-pay-var" onClick={() => transactionWalletConnect(props.amountOfBoxes)}>
+                        <div className="modal-pay-var" onClick={() => {
+                            transactionWalletConnect(props.amountOfBoxes)
+                            props.onClose()
+                        }}>
                             <img src={ConnectWalletImage} height={50} />
                             <h2>WalletConnect</h2>
                             <p>Scan with WalletConnect to connect</p>
