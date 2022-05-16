@@ -985,7 +985,8 @@ footer {
     &_Flex {
       &__Gif {
         width: 90vw;
-        margin-left: 5vw;
+
+        margin: 0 auto;
         height: 500px;
 
         &_img {
@@ -1003,7 +1004,6 @@ footer {
 
       &__LimitedScroll {
         width: 90vw;
-        margin-left: 5vw;
       }
     }
 

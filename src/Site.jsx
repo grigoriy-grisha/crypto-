@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./Sections/css/Main.module.css";
 import {NavLink} from "react-router-dom";
 import LogoY from "./assets/Logo_yellow.png";
@@ -22,33 +22,58 @@ import {AiFillTwitterCircle} from "react-icons/ai";
 import {FaTelegram} from "react-icons/fa";
 import ConnectWalletModal from "./ConnectWalletModal";
 import ScrollBox from "./ScrollBox";
+import {Accept} from "./avalanche";
 
 
 const Site = () => {
-    let [amountOfBoxes, setAmountOfBoxes] = useState(1);
-    const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
-    const maxAmountOfBoxes = 10;
-    const costPerBox = 9;
-    const increment = () => {
-        if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
-    }
-    const decrement = () => {
-        if (amountOfBoxes > 0) return (setAmountOfBoxes(amountOfBoxes - 1));
-    }
-    const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
+  let [amountOfBoxes, setAmountOfBoxes] = useState(1);
+  const [connectText, setConnectText] = useState("Connect wallet")
+  const [mode, setMode] = useState("CONNECT")
+  const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
+  const maxAmountOfBoxes = 10;
+  const costPerBox = 9;
+  const increment = () => {
+    if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
+  }
+  const decrement = () => {
+    if (amountOfBoxes > 0) return (setAmountOfBoxes(amountOfBoxes - 1));
+  }
+  const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
 
-    const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
-    const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
+  const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
+  const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
 
-  console.log(isOpenConnectWalletModal)
-    return (
-    <> <ConnectWalletModal amountOfBoxes={amountOfBoxes} onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
+  const handleAdresChanged = (accounts) => {
+    if (accounts.length === 0) return
+    setConnectText("Connected " + accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
+  }
+
+  useEffect(() => {
+    if(! window.ethereum) return;
+    window.ethereum
+      .request({method: 'eth_accounts'})
+      .then((accounts) => {
+        if (accounts.length === 0) return
+        setConnectText("Connected " + accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
+      })
+      .catch(console.error);
+  }, [])
+
+  const connectToAccount = (id) => {
+    Accept(id, handleAdresChanged)
+  }
+
+
+  return (
+    <>  <ConnectWalletModal mode={mode} amountOfBoxes={amountOfBoxes} connectToAccount={connectToAccount}
+                            onClose={closeConnectWalletModal} show={isOpenConnectWalletModal}/>
       <ScrollBox color="black">
-        {(cubeLayout) =>  <div >
-          <header className={styles.Header} style={{position:'relative',}}>
-            <div style={{position:'absolute', width: '100%', zIndex: 2}}>
+        {(cubeLayout) => <div>
+          <header className={styles.Header} style={{position: 'relative',}}>
+            <div style={{position: 'absolute', width: '100%', zIndex: 2}}>
               {cubeLayout}
             </div>
+
             <div className={styles.Navigation}>
 
               <NavLink to='/' className={styles.Header_Logo}>
@@ -60,8 +85,11 @@ const Site = () => {
                 GENESIS NFT DROP BOX
               </div>
               <div className={styles.flex_column}>
-                <div className={styles.Header_BtnWallet} onClick={openConnectWalletModal} style={{zIndex:4}}>
-                  Connect wallet
+                <div className={styles.Header_BtnWallet} onClick={() => {
+                  openConnectWalletModal()
+                  setMode("CONNECT")
+                }} style={{zIndex: 4}}>
+                  {connectText}
                 </div>
               </div>
             </div>
@@ -69,99 +97,108 @@ const Site = () => {
                    id="BgVideo">
               <source src={video}/>
             </video>
-              <MobileNavigation onOpenConnectWalletModal={openConnectWalletModal}/>
+
+            <MobileNavigation onOpenConnectWalletModal={() => {
+              openConnectWalletModal()
+              setMode("CONNECT")
+            }}/>
             <MobileNavigation/>
           </header>
-          <section className={styles.MainFrame} style={{zIndex:4, transform: 'translate(0px,0px)'}}>
-            <div className={styles.Navigation_Bottom} style={{zIndex:4}}>
-              <div className={styles.Bottom_LeftText} style={{zIndex:4}}>
+          <section className={styles.MainFrame} style={{zIndex: 4, transform: 'translate(0px,0px)'}}>
+            <div className={styles.Navigation_Bottom} style={{zIndex: 4}}>
+              <div className={styles.Bottom_LeftText} style={{zIndex: 4}}>
                 RUN — EARN — RUN
               </div>
-              <div className={styles.Bottom_CenterText} style={{zIndex:4}}>
+              <div className={styles.Bottom_CenterText} style={{zIndex: 4}}>
                 SCROLL
               </div>
               <div className={styles.Bottom_LeftText}>
-                <NavLink to='#' className={styles.active} style={{zIndex:4}}>
+                <NavLink to='#' className={styles.active} style={{zIndex: 4}}>
                   EN
                 </NavLink>
-                <div id="volumeBtn" style={{zIndex:4}}>MUSIC : OFF</div>
+                <div id="volumeBtn" style={{zIndex: 4}}>MUSIC : OFF</div>
               </div>
             </div>
           </section>
         </div>}
       </ScrollBox>
-        <section className={styles.NFT} style={{position:'relative'}}>
-          <div style={{backgroundImage: `url(${bg})` ,    paddingBottom: 117}}>
-            <div className={styles.NFT_Flex} >
-              <div className={styles.NFT_Flex__Gif_Flex} style={{zIndex: 2}}>
-                <div className={styles.NFT_Flex__Gif_LogoW}>
-                  <img src={logoW} alt={logoW} className={styles.NFT_Flex__Gif_LogoW_img}/>
-                </div>
-                <div className={styles.NFT_Flex__Gif}>
-                  <div>
-                    <img autoPlay={"autoplay"} preLoad="auto" loop src={gif}
-                         className={styles.NFT_Flex__Gif_img}>
-                    </img>
-                  </div>
-                  <div className={styles.NFT_Flex__Gif_Text}>10,000 NFT BOXES</div>
-                </div>
+      <section className={styles.NFT} style={{position: 'relative'}}>
+        <div style={{backgroundImage: `url(${bg})`, paddingBottom: 117, paddingTop: 80}}>
+          <div className={styles.NFT_Flex}>
+            <div className={styles.NFT_Flex__Gif_Flex} style={{zIndex: 2}}>
+              <div className={styles.NFT_Flex__Gif_LogoW}>
+                <img src={logoW} alt={logoW} className={styles.NFT_Flex__Gif_LogoW_img}/>
               </div>
-              <div className={styles.NFT_Flex__LimitedScroll} style={{zIndex: 2, paddingBottom:40,}}>
-                <div className={styles.NFT_Flex__LimitedScroll_Flex}>
-                  <div className={styles.NFT_Flex__LimitedScroll_Text}>Limited Sale</div>
-                  <div className={styles.NFT_Flex__LimitedScroll_SchoesFlex}>
-                    <div className={styles.NFT_Flex__LimitedScroll_Schoes_first}>
-                      <img src={schoes1} alt=""/>
-                    </div>
-                    <div className={styles.NFT_Flex__LimitedScroll_Schoes_second}>
-                      <img src={schoes2} alt=""/>
-                    </div>
-                    <div className={styles.NFT_Flex__LimitedScroll_Schoes_third}>
-                      <img src={schoes3} alt=""/>
-                    </div>
-                    <div className={styles.NFT_Flex__LimitedScroll_Schoes_four}>
-                      <img src={schoes4} alt=""/>
-                    </div>
-                  </div>
+              <div className={styles.NFT_Flex__Gif}>
+                <div>
+                  <img autoPlay={"autoplay"} preLoad="auto" loop src={gif}
+                       className={styles.NFT_Flex__Gif_img}>
+                  </img>
                 </div>
-                <div className={styles.NFT_Flex__LimitedScroll_Avaliable}>
-                  <div className={styles.NFT_Flex__LimitedScroll_Logo}>
-                    <img src={boxLarge} alt="boxLarge"
-                         className={styles.NFT_Flex__LimitedScroll_Logo_In}/>
-                  </div>
-                  <div className={styles.NFT_Flex__LimitedScroll_Flex} style={{flexDirection: 'column'}}>
-                    <div className={styles.NFT_Flex__LimitedScroll_Flex_Price}>Price Per Box</div>
-                    <div className={styles.NFT_Flex__LimitedScroll_Flex_AVAX}>{costPerBox} AVAX</div>
-                  </div>
-                </div>
-                <div className={styles.NFT_Flex__LimitedScroll_Scroller}>
-                  <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_decrement}
-                       onClick={decrement}>-
-                  </div>
-                  <div className={styles.NFT_Flex__LimitedScroll_Scroller_Text}>{amountOfBoxes}</div>
-                  <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_increment}
-                       onClick={increment}>+
-                  </div>
-                </div>
-                <div className={styles.NFT_Flex__LimitedScroll_Scroll}>
-                  <input value={amountOfBoxes} onChange={sliderOnChange} type="range" min={1} max={9}
-                         id='range'/>
-                </div>
-                <hr/>
-                <div className={styles.NFT_Flex__LimitedScroll_Flex_Flex}>
-                  <div className={styles.NFT_Flex__LimitedScroll_Total}>Total</div>
-                  <div className={styles.NFT_Flex__LimitedScroll_Max}>{amountOfBoxes * 9} AVAX</div>
-                </div>
-                {/*<hr style={{paddingBottom: '30px'}}/>*/}
-                <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} style={{zIndex: 4}} onClick={openConnectWalletModal}>Buy</div>
-                {/*<div className={styles.NFT_Flex__LimitedScroll_buy}>{amountOfBoxes} / 10, 000</div>*/}
+                <div className={styles.NFT_Flex__Gif_Text}>10,000 NFT BOXES</div>
               </div>
             </div>
-            <div className={styles.NFT_UnderText}>
-              Sales begin May 12
+            <div className={styles.NFT_Flex__LimitedScroll} style={{zIndex: 2, paddingBottom: 40,}}>
+              <div className={styles.NFT_Flex__LimitedScroll_Flex}>
+                <div className={styles.NFT_Flex__LimitedScroll_Text}>Limited Sale</div>
+                <div className={styles.NFT_Flex__LimitedScroll_SchoesFlex}>
+                  <div className={styles.NFT_Flex__LimitedScroll_Schoes_first}>
+                    <img src={schoes1} alt=""/>
+                  </div>
+                  <div className={styles.NFT_Flex__LimitedScroll_Schoes_second}>
+                    <img src={schoes2} alt=""/>
+                  </div>
+                  <div className={styles.NFT_Flex__LimitedScroll_Schoes_third}>
+                    <img src={schoes3} alt=""/>
+                  </div>
+                  <div className={styles.NFT_Flex__LimitedScroll_Schoes_four}>
+                    <img src={schoes4} alt=""/>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.NFT_Flex__LimitedScroll_Avaliable}>
+                <div className={styles.NFT_Flex__LimitedScroll_Logo}>
+                  <img src={boxLarge} alt="boxLarge"
+                       className={styles.NFT_Flex__LimitedScroll_Logo_In}/>
+                </div>
+                <div className={styles.NFT_Flex__LimitedScroll_Flex} style={{flexDirection: 'column'}}>
+                  <div className={styles.NFT_Flex__LimitedScroll_Flex_Price}>Price Per Box</div>
+                  <div className={styles.NFT_Flex__LimitedScroll_Flex_AVAX}>{costPerBox} AVAX</div>
+                </div>
+              </div>
+              <div className={styles.NFT_Flex__LimitedScroll_Scroller}>
+                <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_decrement}
+                     onClick={decrement}>-
+                </div>
+                <div className={styles.NFT_Flex__LimitedScroll_Scroller_Text}>{amountOfBoxes}</div>
+                <div className={styles.NFT_Flex__LimitedScroll_Scroller_Btn_increment}
+                     onClick={increment}>+
+                </div>
+              </div>
+              <div className={styles.NFT_Flex__LimitedScroll_Scroll}>
+                <input value={amountOfBoxes} style={{margin: 0, padding: 0}} onChange={sliderOnChange} type="range"
+                       min={1} max={10}
+                       id='range'/>
+              </div>
+              <hr/>
+              <div className={styles.NFT_Flex__LimitedScroll_Flex_Flex}>
+                <div className={styles.NFT_Flex__LimitedScroll_Total}>Total</div>
+                <div className={styles.NFT_Flex__LimitedScroll_Max}>{amountOfBoxes * 9} AVAX</div>
+              </div>
+              {/*<hr style={{paddingBottom: '30px'}}/>*/}
+              <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} style={{zIndex: 4}} onClick={() => {
+                openConnectWalletModal()
+                setMode("BUY")
+              }}>Buy
+              </div>
+              {/*<div className={styles.NFT_Flex__LimitedScroll_buy}>{amountOfBoxes} / 10, 000</div>*/}
             </div>
           </div>
-        </section>
+          <div className={styles.NFT_UnderText}>
+            Sales begin May 12
+          </div>
+        </div>
+      </section>
       <div className={styles.BlackTransition}>
         <div className={styles.BlackTransition_YellowUpper}>
           <svg viewBox="0 0 1440 81" fill="none" xmlns="http://www.w3.org/2000/svg"

@@ -1,17 +1,16 @@
 //Выбор кошелька
-async function Accept() {
-	const id = document.getElementById('Id').value;
-	if (id == 1) {
-		web3providerMetamask();
+export async function Accept(id, callback) {
+	if (id === 1) {
+		web3providerMetamask(callback);
 	} else {
-		if (id == 2) {
-		web3providerWalletConnect();
+		if (id === 2) {
+		web3providerWalletConnect(callback);
 		}
 	}
 }
 
 let web3;
-async function web3providerMetamask(amountOfBoxes){
+async function web3providerMetamask(callback){
 	//Connectmetamask
 	const WEB3_PROVIDER = "https://api.avax.network/ext/bc/C/rpc"
 	// https://blog.polygon.technology/polygon-rpc-gateway-will-provide-a-free-high-performance-connection-to-the-polygon-pos-blockchain/
@@ -23,9 +22,10 @@ async function web3providerMetamask(amountOfBoxes){
 			web3 = new window.Web3(new window.Web3.providers.HttpProvider(WEB3_PROVIDER));
 			console.log("New web3 object initialized.");
 	}
-	getAccount(amountOfBoxes);
+	getAccount(callback);
 }
-async function web3providerWalletConnect(){
+
+async function web3providerWalletConnect(callback){
 	//An infura ID, or custom ETH node is required for Ethereum, for Binance Smart Chain you can just use their public endpoint
 	var provider = new window.WalletConnectProvider.default(
 	  {
@@ -43,7 +43,7 @@ async function web3providerWalletConnect(){
 		web3.eth.getAccounts().then(function(result){
 			account0 = result;
 			console.log(account0);
-			handleAccountsChanged(account0);
+			callback(account0);
 		})
 	});
 }
@@ -57,11 +57,11 @@ async function disconnectWalletConnect(){
 	window.location.reload();
 }
 
-async function getAccount(amountOfBoxes) {
-	ToPolygonNet(amountOfBoxes);
+async function getAccount(callback) {
+	ToPolygonNet();
 	window.ethereum
 			.request({ method: 'eth_requestAccounts'})
-			.then(handleAccountsChanged)
+			.then(callback)
 			.catch((err) => {
 					if (err.code === 4001) {
 							console.log('Please connect to MetaMask.');
@@ -81,14 +81,13 @@ async function PostAddressAccount() {
   document.getElementById('total').innerHTML = total;
 }
 function handleAccountsChanged(accounts) {
-    console.log(accounts);
     if (accounts.length === 0) {
 				document.getElementById('result').innerHTML = 'CONNECT';
     } else {
 				document.getElementById('result').innerHTML = accounts[0].slice (0, 6)+'..'+accounts[0].slice (38, 42);
     }
 }
-function AddPolygonNet(amountOfBoxes){
+function AddPolygonNet(){
 	window.ethereum.request({
 	    method: 'wallet_addEthereumChain',
 	    params: [{
@@ -97,7 +96,7 @@ function AddPolygonNet(amountOfBoxes){
 	        nativeCurrency: {
 	            name: 'AVAX',
 	            symbol: 'AVAX',
-	            decimals: amountOfBoxes
+	            decimals: 18
 	        },
 	        rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
 	        blockExplorerUrls: ['https://snowtrace.io']
@@ -106,7 +105,7 @@ function AddPolygonNet(amountOfBoxes){
 	.then(() => console.log('network added'))
 	.catch(() => console.log('could not add network'))
 }
-function ToPolygonNet(amountOfBoxes) {
+function ToPolygonNet() {
 	window.ethereum.request({
 	    method: 'wallet_switchEthereumChain',
 	    params: [{ chainId: web3.utils.toHex('43114') }],
@@ -115,7 +114,7 @@ function ToPolygonNet(amountOfBoxes) {
 	.catch((e) => {
 	    if (e.code === 4902) {
 	       console.log('network is not available, add it');
-				 AddPolygonNet(amountOfBoxes);
+				 AddPolygonNet();
 	    } else {
 	       console.log('could not set network');
 	    }
@@ -123,9 +122,8 @@ function ToPolygonNet(amountOfBoxes) {
 }
 
 //eth_sendTransaction
-function transaction(){
-	const id = document.getElementById('Id').value;
-	if (id == 1) {
+export function transaction(id, amountOfBoxes){
+	if (id === 1) {
 		web3providerMetamask();
 		const yourNetworkId = '43114'
 		web3.eth.net.getId()
@@ -135,16 +133,14 @@ function transaction(){
 				ToPolygonNet();
 		  }
 			else {
-				transaction2()
+				transaction2(amountOfBoxes)
 			}
 		})
 		.catch((err) => {
 			// unable to retrieve network id
 		});
 	} else {
-		if (id == 2) {
-		transactionWalletConnect();
-		}
+		transactionWalletConnect(amountOfBoxes);
 	}
 }
 //функция для транзакции в метамаск
@@ -199,7 +195,7 @@ document.getElementById('maxQuantity').innerHTML = maxQuantity;*/
 let col = document.getElementById('col');
 let plus = document.getElementById('plus');
 let minus = document.getElementById('minus');
-let costOneToken = 10;// Цена одного нфт
+let costOneToken = 9;// Цена одного нфт
 /*
 plus.onclick = function() {
   var currentQuantity = parseInt(col.value);
