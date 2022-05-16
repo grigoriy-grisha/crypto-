@@ -43,24 +43,21 @@ const Site = () => {
   const openConnectWalletModal = () => setIsOpenConnectWalletModal(true);
   const closeConnectWalletModal = () => setIsOpenConnectWalletModal(false);
 
-  const handleAdresChanged = (accounts) => {
+  const handleAdressChanged = (accounts) => {
     if (accounts.length === 0) return
-    setConnectText("Connected " + accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
+    setConnectText( accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
   }
 
   useEffect(() => {
     if(! window.ethereum) return;
     window.ethereum
       .request({method: 'eth_accounts'})
-      .then((accounts) => {
-        if (accounts.length === 0) return
-        setConnectText("Connected " + accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
-      })
+      .then(handleAdressChanged)
       .catch(console.error);
   }, [])
 
   const connectToAccount = (id) => {
-    Accept(id, handleAdresChanged)
+    Accept(id, handleAdressChanged)
   }
 
 
@@ -75,7 +72,6 @@ const Site = () => {
             </div>
 
             <div className={styles.Navigation}>
-
               <NavLink to='/' className={styles.Header_Logo}>
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img src={LogoY} alt="image" className={styles.Header_Logo_Yellow}/>
@@ -98,11 +94,11 @@ const Site = () => {
               <source src={video}/>
             </video>
 
-            <MobileNavigation onOpenConnectWalletModal={() => {
+            <MobileNavigation connectText={connectText} onOpenConnectWalletModal={() => {
               openConnectWalletModal()
               setMode("CONNECT")
             }}/>
-            <MobileNavigation/>
+
           </header>
           <section className={styles.MainFrame} style={{zIndex: 4, transform: 'translate(0px,0px)'}}>
             <div className={styles.Navigation_Bottom} style={{zIndex: 4}}>

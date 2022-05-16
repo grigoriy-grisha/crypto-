@@ -582,7 +582,7 @@ footer {
   opacity: 0.6; }
 
 .MobileNav {
-  display: none; }
+  display: none; z-index: 1230911231 }
 
 @media (max-width: 1024px) {
   .NFT_Flex {
@@ -616,7 +616,7 @@ footer {
     position: absolute;
     top: 27px;
     right: 25px;
-    z-index: 3; }
+    z-index: 1230911231}
 
   .Header_BtnWallet {
     display: none; }

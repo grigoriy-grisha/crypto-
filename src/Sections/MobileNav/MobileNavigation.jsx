@@ -6,9 +6,6 @@ import {useState} from 'react';
 import NavLinks from './NavLinks'
 
 const MobileNavigation = (props) => {
-    const openModal = useRef(props.onOpenConnectWalletModal)
-
-
     const [open, setOpen] = useState(false);
     const hamburgerIcon = <VscMenu className={styles.Hamburger}
                                    size='40px' color='yellow'
@@ -20,11 +17,16 @@ const MobileNavigation = (props) => {
                                                onClick={() => setOpen(!open)}
     />
     const closeMobileNav = () => setOpen(false);
+
+
+    useEffect(() => {
+
+    },[])
     return (
 
         <nav className={styles.MobileNav}>
             {open ? hamburgerCloseIcon : hamburgerIcon}
-            {open && <NavLinks onOpenConnectWalletModal={openModal.current} isMobile={true} closeMobileNav={closeMobileNav}/>}
+            {open && <NavLinks connectText={props.connectText} onOpenConnectWalletModal={props.onOpenConnectWalletModal} isMobile={true} closeMobileNav={closeMobileNav}/>}
         </nav>
     );
 };

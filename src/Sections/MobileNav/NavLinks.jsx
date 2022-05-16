@@ -18,7 +18,7 @@ const NavLinks = (props) => {
               props.onOpenConnectWalletModal && props.onOpenConnectWalletModal()
               props.isMobile && props.closeMobileNav()
             }}>
-                <NavLink to="/">Connect Wallet</NavLink></li>
+                <NavLink to="/">{props.connectText}</NavLink></li>
             <li className={styles.NavButton} onClick={() => props.isMobile && props.closeMobileNav()}>
                 <NavLink to="/">Infromation
                 </NavLink>
