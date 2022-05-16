@@ -27,8 +27,8 @@ import ScrollBox from "./ScrollBox";
 const Site = () => {
     let [amountOfBoxes, setAmountOfBoxes] = useState(1);
     const [isOpenConnectWalletModal, setIsOpenConnectWalletModal] = useState(false)
-    const maxAmountOfBoxes = 15;
-    const costPerBox = 1;
+    const maxAmountOfBoxes = 10;
+    const costPerBox = 9;
     const increment = () => {
         if (amountOfBoxes < maxAmountOfBoxes) setAmountOfBoxes(amountOfBoxes + 1);
     }
@@ -150,7 +150,7 @@ const Site = () => {
                 <hr/>
                 <div className={styles.NFT_Flex__LimitedScroll_Flex_Flex}>
                   <div className={styles.NFT_Flex__LimitedScroll_Total}>Total</div>
-                  <div className={styles.NFT_Flex__LimitedScroll_Max}>{amountOfBoxes} AVAX</div>
+                  <div className={styles.NFT_Flex__LimitedScroll_Max}>{amountOfBoxes * 9} AVAX</div>
                 </div>
                 {/*<hr style={{paddingBottom: '30px'}}/>*/}
                 <div className={styles.NFT_Flex__LimitedScroll_ConnectWallet} style={{zIndex: 4}} onClick={openConnectWalletModal}>Buy</div>
