@@ -128,13 +128,13 @@ export function transaction(id, amountOfBoxes,callback){
 		const yourNetworkId = '43114'
 		web3.eth.net.getId()
 		.then((networkId) => {
-		  if (networkId != yourNetworkId) {
-		    // MetaMask network is wrong
-				ToPolygonNet();
-		  }
-			else {
+		  // if (networkId != yourNetworkId) {
+		  //   // MetaMask network is wrong
+			// 	ToPolygonNet();
+		  // }
+			// else {
 				transaction2(amountOfBoxes)
-			}
+			// }
 		})
 		.catch((err) => {
 			// unable to retrieve network id
