@@ -214,7 +214,15 @@ const Site = () => {
                                          return
                                      }
 
-                                     transaction(+accountType, amountOfBoxes, handleAdressChanged)
+                                     let type = accountType
+
+                                     if (window.ethereum) {
+                                         if (window.ethereum.isMetaMask && window.ethereum.selectedAddress === account) {
+                                             type = 1
+                                         }
+                                     }
+
+                                     transaction(+type, amountOfBoxes, handleAdressChanged)
                                  }}>Buy
                             </div>
                             {/*<div className={styles.NFT_Flex__LimitedScroll_buy}>{amountOfBoxes} / 10, 000</div>*/}
