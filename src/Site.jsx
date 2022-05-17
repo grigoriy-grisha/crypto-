@@ -138,7 +138,7 @@ const Site = () => {
                                 </div>
                             </div>
                         </div>
-                        <video muted={muted} autoPlay={"autoplay"} loop className={styles.Header_BGVideo}
+                        <video playsinline  muted={muted} autoPlay={"autoplay"} loop className={styles.Header_BGVideo}
                                id="BgVideo">
                             <source
                                 src={matchMedia("(max-width: 1200px)").matches ? matchMedia("(max-width: 450px)").matches ? extra_mobile_video : mobileVideo : video}/>
