@@ -28,7 +28,7 @@ import {Accept, transaction} from "./avalanche";
 const Site = () => {
     let [amountOfBoxes, setAmountOfBoxes] = useState(1);
     const [connectText, setConnectText] = useState("Connect wallet")
-    const [account, setAccount] = useState(null)
+    const [account, setAccount] = useState(localStorage.getItem('account'))
     const [accountType, setAccountType] = useState(localStorage.getItem("id"))
     const [mode, setMode] = useState("CONNECT")
     const [muted, setMuted] = useState(true)
@@ -58,12 +58,22 @@ const Site = () => {
     const sliderOnChange = (sliderArgs) => setAmountOfBoxes(parseInt(sliderArgs.target.value));
 
 
+    useEffect(() => {
+        if  (account) {
+            setConnectText(account.slice(0, 6) + '..' + account.slice(38, 42))
+        }
+    },[])
     const handleAdressChanged = (id) => (accounts) => {
       console.log(accounts)
         if (accounts.length === 0) return
         if (id) {
           localStorage.setItem('id', id)
           setAccountType(id)
+        }
+
+        if ( accounts[0]) {
+            localStorage.setItem('account', accounts[0])
+
         }
         setAccount(accounts[0])
         setConnectText(accounts[0].slice(0, 6) + '..' + accounts[0].slice(38, 42))
