@@ -156,7 +156,7 @@ const Site = () => {
                 <div style={{backgroundImage: `url(${bg})`, paddingBottom: 117, paddingTop: 80}}>
                     <div className={styles.NFT_Flex}>
                         <div className={styles.NFT_Flex__Gif_Flex} style={{zIndex: 2}}>
-                            <div className={styles.NFT_Flex__Gif_LogoW}>
+                            <div className={styles.NFT_Flex__Gif_LogoW}>k
                                 <img src={logoW} alt={logoW} className={styles.NFT_Flex__Gif_LogoW_img}/>
                             </div>
                             <div className={styles.NFT_Flex__Gif}>
