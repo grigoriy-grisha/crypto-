@@ -10,7 +10,8 @@ export async function Accept(id, callback) {
 }
 
 let web3;
-async function web3providerMetamask(callback){
+
+async function web3providerMetamask(callback) {
 	//Connectmetamask
 	const WEB3_PROVIDER = "https://api.avax.network/ext/bc/C/rpc"
 	// https://blog.polygon.technology/polygon-rpc-gateway-will-provide-a-free-high-performance-connection-to-the-polygon-pos-blockchain/

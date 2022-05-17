@@ -28,7 +28,7 @@ import {Accept, transaction} from "./avalanche";
 const Site = () => {
     let [amountOfBoxes, setAmountOfBoxes] = useState(1);
     const [connectText, setConnectText] = useState("Connect wallet")
-    const [account, setAccount] = useState(localStorage.getItem('account'))
+    const [account, setAccount] = useState(null)
     const [accountType, setAccountType] = useState(localStorage.getItem("id"))
     const [mode, setMode] = useState("CONNECT")
     const [muted, setMuted] = useState(true)
